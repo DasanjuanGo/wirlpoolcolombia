@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen Ampliada al Hacer Clic</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery img {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .close {
+            color: #fff;
+            font-size: 40px;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gallery">
+        <img src="images/filtro.jpg" alt="Imagen 1" onclick="openModal('images/filtro.jpg')">
+        <img src="imagen2.jpg" alt="Imagen 2" onclick="openModal('imagen2.jpg')">
+        <img src="imagen3.jpg" alt="Imagen 3" onclick="openModal('imagen3.jpg')">
+    </div>
+
+    <!-- Modal para mostrar la imagen ampliada -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImage" class="modal-content">
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+<script>
+    // Función para abrir el modal y mostrar la imagen ampliada
+function openModal(imageSrc) {
+  var modal = document.getElementById("myModal");
+  var modalImg = document.getElementById("modalImage");
+  modal.style.display = "block";
+  modalImg.src = imageSrc;
+}
+
+// Función para cerrar el modal
+function closeModal() {
+  var modal = document.getElementById("myModal");
+  modal.style.display = "none";
+}
+
+</script>
+</html>
